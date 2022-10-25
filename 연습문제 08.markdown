@@ -1,0 +1,183 @@
+# ASSIGNMENT 08
+```python
+#8.1
+try:
+    f_name = input('읽어들일 파일 이름을 입력하세요 : ')
+    in_file = open(f_name, 'r')
+    buf = in_file.readline()
+    print(buf)
+except FileNotFoundError:
+    print('FileNotFoundError')
+except ZeroDivisionError:
+    print('ZeroDivisionError')
+except ValueError:
+    print('valueerror')    
+except Exception as e:
+    print('error :',e)
+else:
+    print('결과 :',result)
+
+#8.2 ////
+f = open('my_hello.txt','w')
+f.write('firstwrite')
+f.close()
+f = open('my_hello.txt','r')
+
+try:
+    f = open('my_hello.txt','w')
+    f.write('write')
+except Exception as e:
+    print('error :',e)
+else:
+    print('success')
+finally:
+    f.close()
+
+#8.3
+f = open('hello.txt','w')
+f.write('Hello.\nHi, there.\n')
+f.close()
+
+f = open('hello.txt','r')
+print('hello.txt 파일 :')
+s = f.readline().rstrip()
+print(s)
+s = f.readline().rstrip()
+print(s)
+f.close()
+
+f = open('hello.txt','a+')
+f.write('Welcome to Python!.')
+f.close()
+
+f = open('hello.txt','r')
+print('hello.txt 파일 :')
+s = f.readline().rstrip()
+print(s)
+s = f.readline().rstrip()
+print(s)
+s = f.readline().rstrip()
+print(s)
+f.close()
+
+#8.4 ////
+f = open('greet.txt','w')
+f.write('Hi, everyone.')
+f.write('\n')
+f.write('Welcome to Python')
+f.close()
+
+with open('greet.txt','w') as f:
+    f.write('Hi, everyone.')
+    f.write('\n')
+    f.write('Welcome to Python')
+
+#8.5
+f = open('number1to10.txt','w')
+for i in range(10):
+    f.write('{}'.format((i+1)))
+    f.write('\n')
+f.close()
+
+#8.6
+f = open('number1to10.txt','r')
+n = int(input('몇 번째 라인까지 출력하시겠습니까?'))
+for i in range(n):
+    s = f.readline().rstrip()
+    print(s)
+f.close()
+
+#8.7.1
+f = open('number1to10.txt','w')
+for i in range(10):
+    f.write('{}'.format((i+1)))
+    f.write('\n')
+
+f = open('number1to10.txt','r')
+    
+fp = open('numberby10.txt','w')
+s = f.readline().rstrip()
+for i in range(10):
+    result = int(s) * 10
+    fp.write('{}'.format(result))
+    fp.write('\n')
+    s = f.readline().rstrip()
+f.close()
+fp.close()
+
+#8.7.2
+f = open('number1to10.txt','r')
+fr = f.readline().rstrip()
+fp = open('numberby10.txt','r')
+fpr = fp.readline().rstrip()
+
+m = open('merge.txt','w')
+for i in range(10):
+    m.write('{} : {}'.format(fr, fpr))
+    m.write('\n')
+    fr = f.readline().rstrip()
+    fpr = fp.readline().rstrip()
+f.close()
+fp.close()
+m.close()
+
+#8.8
+import random as rd
+
+f = open('random_numbers.txt','w')
+flist = []
+for i in range(10):
+    k=rd.randint(1,1000)
+    f.write('{}'.format(k))
+    f.write(' ')
+    flist.append(k)
+
+fe = open('random_even.txt','w')
+fo = open('random_odd.txt','w')
+for i in flist:
+    if (i % 2 == 0):
+        fe.write('{}'.format(i))
+        fe.write(' ')
+    else:
+        fo.write('{}'.format(i))
+        fo.write(' ')
+f.close()
+fe.close()
+fo.close()
+
+#8.9
+f1list = []
+
+f1list.append([10,2])
+f1list.append([4,6])
+f1list.append([2,5])
+f1list.append([2,4])
+f1list.append([9,6])
+f1list.append([7,8])
+
+f1.close()
+
+s_array = sorted(f1list)
+
+for x,y in s_array:
+    print(x,y)
+
+#8.10
+import random as rd
+flist = []
+
+f = open('randint30.txt','w')
+for i in range(30):
+    num = rd.randint(1,10)
+    f.write('{}'.format(num))
+    flist.append(num)
+    f.write(' ')
+f.close()
+for j in range(1,11):
+    print('{} : {}개'.format(j, flist.count(j)))
+```
+
+
+```python
+
+```
